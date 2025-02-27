@@ -17,56 +17,74 @@ First Draft Pseudocode
 2. Use Math.random to return rock, paper, scissors
 */
 
-//Asks for human choice
+//Declare variables for get functions
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 
-//getHumanChoice function 
-
+//getHumanChoice function
 function getHumanChoice() {
 
 let answer = prompt("Please enter a choice of rock, paper, or scissors");
 
-console.log(answer);
+return answer.toLowerCase();
 
 }
 
-getHumanChoice();
+//log response
+console.log(humanSelection);
 
-//generates computer response
+//getComputerChoice function
 function getComputerChoice() {
 
     let randomNumber = Math.random();
     
-    if (randomNumber > 0.33 && randomNumber < 0.66) {
+    if (0.33 < randomNumber && randomNumber < 0.66) {
 
-        console.log("paper");
+        return 'paper';
     }
 
     else if (randomNumber <= 0.33) {
 
-        console.log("rock");
+        return 'rock';
     }
 
     else {
 
-        console.log("scissors");
+        return 'scissors';
     } 
 
 }
 
-getComputerChoice();
+//log response
+console.log(computerSelection);
     
+/*
+
 let humanScore = 0;
 
 let computerScore = 0;
+*/
 
+//for loop 
 
-
+//play function 
 function playRound(humanChoice, computerChoice) {
 
- if (humanChoice == "rock" && computerChoice == "scissors") {
-
-    console.log(1);
- }
+ if (humanChoice === 'rock' && computerChoice === 'scissors' ||
+    humanChoice === 'scissors' && computerChoice === 'paper' ||
+    humanChoice === 'paper' && computerChoice === 'rock')
+{
+    console.log('You win!');
+} else if (humanChoice === 'scissors' && computerChoice === 'rock' ||
+        humanChoice === 'paper' && computerChoice === 'scissors'  ||
+        humanChoice === 'rock'  && computerChoice === 'paper')
+{ 
+    console.log('You lose!');
+} else {
+    console.log('It is a tie!');
+}
 
 }
 
+//Call play function
+playRound(humanSelection, computerSelection);
