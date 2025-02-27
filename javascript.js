@@ -18,8 +18,18 @@ First Draft Pseudocode
 */
 
 //Asks for human choice
-let answer = parseInt(prompt("Please enter a choice of Rock, Paper, or Scissors"));
 
+//getHumanChoice function 
+
+function getHumanChoice() {
+
+let answer = prompt("Please enter a choice of rock, paper, or scissors");
+
+console.log(answer);
+
+}
+
+getHumanChoice();
 
 //generates computer response
 function getComputerChoice() {
@@ -28,22 +38,35 @@ function getComputerChoice() {
     
     if (randomNumber > 0.33 && randomNumber < 0.66) {
 
-        console.log("Paper");
+        console.log("paper");
     }
 
     else if (randomNumber <= 0.33) {
 
-        console.log("Rock");
+        console.log("rock");
     }
 
     else {
 
-        console.log("Scissors");
+        console.log("scissors");
     } 
 
 }
 
 getComputerChoice();
     
+let humanScore = 0;
 
-    
+let computerScore = 0;
+
+
+
+function playRound(humanChoice, computerChoice) {
+
+ if (humanChoice == "rock" && computerChoice == "scissors") {
+
+    console.log(1);
+ }
+
+}
+
