@@ -17,9 +17,19 @@ First Draft Pseudocode
 2. Use Math.random to return rock, paper, scissors
 */
 
+//making the score variables global increments correctly, inside playGame function increment twice
+let humanScore = 0;
+
+let computerScore = 0;
+
+for (i = 0; i < 5; i++)
+    
+    {
+
 //Declare variables for get functions
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
+
 
 //getHumanChoice function
 function getHumanChoice() {
@@ -58,33 +68,60 @@ function getComputerChoice() {
 //log response
 console.log(computerSelection);
     
-/*
 
-let humanScore = 0;
 
-let computerScore = 0;
-*/
+
+
 
 //for loop 
 
 //play function 
+
+
+function playGame () {
+
+
+
+
 function playRound(humanChoice, computerChoice) {
 
  if (humanChoice === 'rock' && computerChoice === 'scissors' ||
     humanChoice === 'scissors' && computerChoice === 'paper' ||
     humanChoice === 'paper' && computerChoice === 'rock')
 {
-    console.log('You win!');
+    console.log('You win! Your score: ' + ++humanScore);
+    return humanScore;
+    
 } else if (humanChoice === 'scissors' && computerChoice === 'rock' ||
         humanChoice === 'paper' && computerChoice === 'scissors'  ||
         humanChoice === 'rock'  && computerChoice === 'paper')
 { 
-    console.log('You lose!');
+    console.log('You lose! Computer Score: ' + ++computerScore);
+    return computerScore;
+    
 } else {
     console.log('It is a tie!');
 }
 
 }
 
-//Call play function
+//Call play function, How do I call it 5 times 
 playRound(humanSelection, computerSelection);
+
+}
+
+playGame();
+
+}
+
+if (humanScore > computerScore) {
+    console.log('You win the game, great work!');
+}
+
+else if (computerScore > humanScore) {
+    console.log('You lose the game, better luck next time');
+}
+
+else { 
+    console.log('It is a tie!');
+}
